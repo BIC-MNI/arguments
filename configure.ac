@@ -22,27 +22,29 @@ AC_PROG_LIBTOOL
 # Check that we have some required header files (and macros in them)
 #------------------------------------------------------------------------
 AC_HEADER_STDC
-AC_CHECK_HEADERS(float.h limits.h malloc.h)
+#AC_CHECK_HEADERS(float.h limits.h malloc.h)
 
 
 #------------------------------------------------------------------------
 # Checks for typedefs, structures, and compiler characteristics.
 #------------------------------------------------------------------------
-AC_C_INLINE
-AC_C_CONST
-AC_TYPE_SIZE_T
+#AC_C_INLINE
+#AC_C_CONST
+#AC_TYPE_SIZE_T
 #AC_CHECK_TYPE(bool,int)
 
 
 #------------------------------------------------------------------------
 # Checks for library functions.
 #------------------------------------------------------------------------
-AC_FUNC_VPRINTF
-AC_CHECK_FUNCS(strtod strtol)
+#AC_FUNC_VPRINTF
+#AC_CHECK_FUNCS(strtod strtol)
 
 
-AC_OUTPUT([Makefile src/Makefile])
+AC_CHECK_PROGS(HAVE_DOT, [dot], NO)
+if test "$HAVE_DOT" = dot; then
+    HAVE_DOT=YES
+fi
 
-
-
+AC_OUTPUT([Makefile src/Makefile doc/Makefile doc/doxygen_config])
 
