@@ -17,7 +17,7 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-// $Id: arguments.cpp,v 1.2 2004-09-04 00:00:52 jharlap Exp $
+// $Id: arguments.cpp,v 1.3 2004-09-04 11:23:59 jharlap Exp $
 #include "arguments.h"
 #include <iostream>
 
@@ -29,6 +29,14 @@ using namespace std;
 Arguments::Option Arguments::unknownOption("UNKNOWN", "UNKNOWN");
 Arguments::Argument Arguments::unknownArgument("UNKNOWN", "UNKNOWN", "UNKNOWN");
 
+/*! Arguments constructor
+ *
+ * does nothing other than initialize the program name, description and option prefix
+ *  
+ * \param name the name of the program
+ * \param description a brief description of the program, defaults to ""
+ * \param prefix the prefix to use for options, defaults to "-"
+ */
 Arguments::Arguments(string name, string description, string prefix)
   : programName(name),
     programDescription(description),
