@@ -1,0 +1,4 @@
+New in version 0.1
+* basic argument handling. supports mandatory arguments, options,
+options with mandatory arguments, and leftover arguments.  has a
+usage() method to display user-friendly-ish usage info
