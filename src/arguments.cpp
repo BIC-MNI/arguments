@@ -17,9 +17,12 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-// $Id: arguments.cpp,v 1.3 2004-09-04 11:23:59 jharlap Exp $
 #include "arguments.h"
 #include <iostream>
+
+#ifndef lint
+static char rcsid[] = "$Header: /private-cvsroot/libraries/arguments/src/arguments.cpp,v 1.4 2004-09-05 13:52:57 jharlap Exp $";
+#endif
 
 using namespace std;
 
