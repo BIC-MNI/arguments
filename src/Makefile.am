@@ -1,4 +1,6 @@
-AUTOMAKE_OPTIONS = check-news
+#AUTOMAKE_OPTIONS = check-news
+
+EXTRA_DIST = doxymain.txt
 
 include_HEADERS = arguments.h
 
