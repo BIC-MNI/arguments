@@ -2,8 +2,8 @@
 
 set -e
 
-libtoolize --automake
+libtoolize --automake --copy
 aclocal
 autoheader
-automake --add-missing
+automake --add-missing --copy
 autoconf
