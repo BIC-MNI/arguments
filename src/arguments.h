@@ -17,7 +17,7 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-// $Header: /private-cvsroot/libraries/arguments/src/arguments.h,v 1.4 2004-09-05 13:52:39 jharlap Exp $
+// $Header: /private-cvsroot/libraries/arguments/src/arguments.h,v 1.5 2007-02-07 15:12:42 jharlap Exp $
 
 #ifndef ARGUMENTS_H
 #define ARGUMENTS_H
@@ -217,7 +217,7 @@ class Arguments {
    *
    * \return the leftover arguments
    */
-  LeftoversVector &Arguments::getLeftovers();
+  LeftoversVector &getLeftovers();
 
   /*! Arguments constructor.
    *
