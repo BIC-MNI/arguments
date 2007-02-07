@@ -2,7 +2,7 @@ dnl Process this file with autoconf to produce a configure script.
 
 AC_INIT
 AC_CONFIG_SRCDIR([src/arguments.cpp])
-AM_INIT_AUTOMAKE(arguments, 0.1)
+AM_INIT_AUTOMAKE(arguments, 0.2)
 AC_CONFIG_HEADER([config.h])
 
 
