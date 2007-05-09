@@ -1,9 +1,8 @@
 %product arguments
 %copyright 2004 Jonathan Harlap
 %vendor McConnell Brain Imaging Centre
-%packager Jason Lerch <jason@bic.mni.mcgill.ca>
+%packager Andrew Janke <a.janke@gmail.com>
 %license LICENSE
 %readme README
 %description C++ argument handling
-%version 0.2
-
+%version @VERSION@

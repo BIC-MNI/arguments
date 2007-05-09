@@ -1,3 +1,7 @@
+
+New in version 0.2.1
+* made to conform with "bic" epm style
+
 New in version 0.2
 * fixed compatibility with GCC 4.1
 

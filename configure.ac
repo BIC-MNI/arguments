@@ -1,10 +1,10 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT
+AC_INIT([arguments],[0.2.1],[Jonathan Harlap <jharlap@bic.mni.mcgill.ca>])
 AC_CONFIG_SRCDIR([src/arguments.cpp])
-AM_INIT_AUTOMAKE(arguments, 0.2)
 AC_CONFIG_HEADER([config.h])
 
+AM_INIT_AUTOMAKE
 
 #------------------------------------------------------------------------
 # Checks for compiler toolset.
@@ -46,5 +46,5 @@ if test "$HAVE_DOT" = dot; then
     HAVE_DOT=YES
 fi
 
-AC_OUTPUT([Makefile src/Makefile doc/Makefile doc/doxygen_config])
+AC_OUTPUT([Makefile src/Makefile doc/Makefile doc/doxygen_config epm-header])
 
