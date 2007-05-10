@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT([arguments],[0.2.1],[Jonathan Harlap <jharlap@bic.mni.mcgill.ca>])
+AC_INIT([arguments],[0.2.2],[Jonathan Harlap <jharlap@bic.mni.mcgill.ca>])
 AC_CONFIG_SRCDIR([src/arguments.cpp])
 AC_CONFIG_HEADER([config.h])
 
