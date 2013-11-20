@@ -168,7 +168,7 @@ void Arguments::usage() {
   cerr << programDescription << endl;
 }
 
-string &Arguments::operator[](char* name) {
+string &Arguments::operator[](const char * name) {
   // fetch a specific argument
   for(ArgumentVector::iterator argIt = argsArguments.begin(); argIt != argsArguments.end(); ++argIt) {
     if(argIt->argName == name)
@@ -178,7 +178,7 @@ string &Arguments::operator[](char* name) {
   return unknownArgument.argValue;
 }
 
-Arguments::Option &Arguments::getOption(char* name) {
+Arguments::Option &Arguments::getOption(const char * name) {
   // fetch a specific option
   OptionMap::iterator it = argsOptions.find(name);
 
@@ -207,19 +207,15 @@ void Arguments::Option::addArgument(string name, string description, string def)
   optArguments.push_back(Argument(name, description, def));
 }
 
-string &Arguments::Option::operator[](char* name) {
+string& Arguments::Option::operator[](const char * name) {
   // fetch a specific argument from the option
-  for(ArgumentVector::iterator argIt = optArguments.begin(); argIt != optArguments.end(); ++argIt) {
-	if(argIt->argName == name)
-	  return argIt->argValue;
+  for(ArgumentVector::iterator argIt = optArguments.begin(); argIt != optArguments.end(); ++argIt) 
+  {
+    if(argIt->argName == name)
+      return argIt->argValue;
   }
 
-  Argument empty("UNKNOWN", "UNKNOWN");
-  return empty.argValue;
-}
-
-string &Arguments::Option::operator[](const char *name) {
-  return operator[]((char*) name);
+  return unknownArgument.argValue;
 }
 
 Arguments::Option::operator bool() {

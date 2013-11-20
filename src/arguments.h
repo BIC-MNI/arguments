@@ -117,10 +117,7 @@ class Arguments {
      *
      * \return the value of the Argument requested
     */
-    string &operator[](char* name);
-
-    //! Simply casts away the const, doing the same thing as the regular [] operator
-    string &operator[](const char *name);
+    string &operator[](const char * name);
 
     /*! bool operator determines if an option has been set.
      *
@@ -188,7 +185,7 @@ class Arguments {
    *  
    * \return true if parse() succeeded, false if something went wrong
    */
-  bool parse(int argc, char *argv[]);
+  bool parse(int argc,char *argv[]);
 
   /*! [] operator for accessing mandatory arguments.
    *
@@ -199,7 +196,7 @@ class Arguments {
    *
    * \return the value of the Argument requested
    */
-  string &operator[](char* name);
+  string &operator[](const char* name);
 
   /*! Gets an Option object by name.
    *
@@ -207,7 +204,7 @@ class Arguments {
    *
    * \return a reference to the Option
    */
-  Option &getOption(char* name);
+  Option &getOption(const char* name);
 
   /*! Gets the leftover arguments.
    *
