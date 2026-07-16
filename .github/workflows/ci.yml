@@ -1,0 +1,89 @@
+name: ci
+
+# Build the arguments library (static + shared) on every push and pull
+# request. No tests exist yet (Testing/ is TODO in CMakeLists.txt), so this
+# is a configure + build + install smoke check.
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+    container: 'ubuntu:24.04'
+    strategy:
+      fail-fast: false
+      matrix:
+        shared: [ON, OFF]
+    env:
+      DEBIAN_FRONTEND: noninteractive
+    steps:
+      - name: Install build deps
+        run: |
+          apt-get update
+          apt-get install -y build-essential cmake git
+      - name: Allow git to read the workspace owned by the runner user
+        run: git config --global --add safe.directory '*'
+      - uses: actions/checkout@v7
+      - name: Configure + build + install
+        run: |
+          set -euxo pipefail
+          cmake -B build \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_INSTALL_PREFIX="$PWD/install" \
+            -DARGUMENTS_BUILD_SHARED_LIBS=${{ matrix.shared }}
+          cmake --build build -j"$(nproc)"
+          cmake --install build
+
+  fedora:
+    runs-on: ubuntu-latest
+    container: 'fedora:44'
+    strategy:
+      fail-fast: false
+      matrix:
+        shared: [ON, OFF]
+    steps:
+      - name: Install build deps
+        run: dnf install -y gcc gcc-c++ cmake make git
+      - name: Allow git to read the workspace owned by the runner user
+        run: git config --global --add safe.directory '*'
+      - uses: actions/checkout@v7
+      - name: Configure + build + install
+        run: |
+          set -euxo pipefail
+          cmake -B build \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_INSTALL_PREFIX="$PWD/install" \
+            -DARGUMENTS_BUILD_SHARED_LIBS=${{ matrix.shared }}
+          cmake --build build -j"$(nproc)"
+          cmake --install build
+
+  macos:
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shared: [ON, OFF]
+    steps:
+      - uses: actions/checkout@v7
+      - name: Configure + build + install
+        run: |
+          set -euxo pipefail
+          cmake -B build \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_INSTALL_PREFIX="$PWD/install" \
+            -DARGUMENTS_BUILD_SHARED_LIBS=${{ matrix.shared }}
+          cmake --build build -j"$(sysctl -n hw.ncpu)"
+          cmake --install build
