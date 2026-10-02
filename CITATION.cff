@@ -1,0 +1,34 @@
+# Citation metadata for arguments (Citation File Format, https://citation-file-format.github.io/).
+# The author list comes from the commit history and from the history comments in the files.
+
+cff-version: 1.2.0
+title: arguments
+message: >-
+  If you use this software, please cite it using the metadata from this file.
+type: software
+authors:
+  - given-names: Jonathan
+    family-names: Harlap
+  - given-names: Vladimir
+    family-names: Fonov
+    email: vladimir.fonov@gmail.com
+    affiliation: McGill University
+    orcid: "https://orcid.org/0000-0003-3402-7749"
+  - given-names: Andrew L.
+    family-names: Janke
+    orcid: "https://orcid.org/0000-0003-0547-5171"
+  - given-names: Haz-Edine
+    family-names: Assemlal
+  - given-names: Claude
+    family-names: Lepage
+  - given-names: Jason
+    family-names: Lerch
+    orcid: "https://orcid.org/0000-0001-6164-2881"
+repository-code: "https://github.com/BIC-MNI/arguments"
+abstract: "arguments: helper library to parse command-line arguments."
+keywords:
+  - command-line arguments
+  - C++
+  - library
+  - MINC
+license: GPL-2.0-or-later
